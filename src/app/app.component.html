@@ -27,9 +27,9 @@
   {{mErrorStatus}} {{mErrorMessage}}
 </div>
 
-<div *ngIf="mUser">
-  <div>
-    {{mUser | json}}
-  </div>
+<div *ngIf="mUser && mUser.authenticated">
+  <div [innerHTML]="mUserString"></div>
   <button (click)="logout()">Log Out</button>
+  <button (click)="showComponents()">Load Component List</button>
+  <div [innerHTML]="mServicesString"></div>
 </div>

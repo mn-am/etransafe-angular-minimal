@@ -16,6 +16,8 @@ import {Component, OnDestroy} from '@angular/core';
 
 //
 import {EtsAuthService} from './EtsAuthService';
+import {HttpClient} from '@angular/common/http';
+import {EtsConfigService} from './EtsConfigService';
 
 @Component({
   selector: 'app-root',
@@ -25,16 +27,19 @@ import {EtsAuthService} from './EtsAuthService';
 export class AppComponent implements OnDestroy {
 
   private mDestroy = new Subject();
-  private mUser: EtsAuthService.User = null;
-  private mAuthenticating: boolean = false;
-  private mErrorStatus: string = null;
-  private mErrorMessage: string = null;
 
   mModel: any = {}; // data used for authenticating
+  mUser: EtsAuthService.User = null;
+  mUserString: string = '';
+  mAuthenticating: boolean = false;
+  mErrorStatus: string = null;
+  mErrorMessage: string = null;
+  mServicesString: string = '';
 
-  constructor(private mAuthService: EtsAuthService) {
+  constructor(private mAuthService: EtsAuthService, private mHttp: HttpClient, private mConfig: EtsConfigService) {
     mAuthService.user().pipe(takeUntil(this.mDestroy)).subscribe(user => {
       this.mUser = user;
+      this.mUserString = this.json2string(user);
     });
   }
 
@@ -68,6 +73,18 @@ export class AppComponent implements OnDestroy {
    */
   logout() {
     this.mAuthService.logout();
+  }
+
+  private json2string(value: any): string {
+    return JSON.stringify(value, null, 2)
+      .replace(new RegExp(' ', 'g'), '&nbsp;')
+      .replace(new RegExp('\n', 'g'), '<br/>');
+  }
+
+  showComponents() {
+    this.mHttp.get('/' + this.mConfig.KnowledgeHubRegistryApiUrl + '/api/v1/service').subscribe(s => {
+      this.mServicesString = this.json2string(s);
+    });
   }
 
   ngOnDestroy() {
