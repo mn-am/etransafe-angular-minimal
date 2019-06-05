@@ -1,0 +1,92 @@
+openapi: 3.0.2
+info:
+  title: eTRANSAFE login manager
+  termsOfService: http://etransafe.eu
+  description: >
+    eTRANSAFE login manager
+  contact:
+    name: Support team
+    url: https://mn-am.com
+    email: support@mn-am.com
+  license:
+    name: eTRANSAFE Consortium License 1.0
+    url: https://etransafe.eu
+  version: 1.0.it0
+  x-meta:
+    serviceType: frontend
+    uuid: 450e11e6-58a0-44e9-8ee4-0f4975294076
+    provider: Molecular Networks GmbH
+    created: 2019-02-15
+    released: 2019-05-01
+    lastChanged: 2019-05-17
+    software: 
+      - name: Angular
+        version: 7
+        description: Angular framework
+        provider: Acme Corporation
+        license: 
+          name: Angular MIT-License
+          url: https://angular.io/license
+servers:
+- url: /api/v1
+  description: Base URL of the API
+paths:
+  /api:
+    get:
+      summary: Returns this API definition
+      description: Reports this API definition.
+      responses:
+        200:
+          description: YAML specification of this API
+          content:
+            text/yaml:
+              schema:
+                type: object
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+  /ready:
+    get:
+      summary: Returns the online status of the service
+      description: Reports the online status (readiness) of the service.
+      responses:
+        200:
+          description: Service is ready.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Service is ready.
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+  /alive:
+    get:
+      summary: Returns the health status of the service
+      description: Reports the health status (leaviness) of the service.
+      responses:
+        200:
+          description: Service is alive.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Service is alive and healthy.
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+  /../../..:
+    get:
+      summary: UI of the service
+      description: Redirects to the UI of the service, which would be <host>/basePath/ then.
+      responses:
+        200:
+          description: Service UI.
+          content:
+            text/html:
+              schema:
+                type: string
+                example: Service UI.
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+components:
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid

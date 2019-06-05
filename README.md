@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# etransafe-angular-minimal
+A minimal Angular web application for deployment within the eTRANSAFE Knowledge Hub. It includes the following features:
+- configure Angular application for deployment in Knowledge Hub
+- Log in using API enpoint
+- Retrieve JWT token and save in local storage
+- add the JWT to each http request that starts with "/" using an Angular http interceptor
+- make request to Knowledge Hub Registry and list all available services 
+

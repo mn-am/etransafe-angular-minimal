@@ -1,0 +1,7 @@
+{
+  "Offline": false,
+  "Environment": "DEVELOPMENT",
+  "GatewayUrl": "https://dev.etransafe.130.226.24.120.nip.io",
+  "AuthenticationApiUrl": "/etssp.kh.svc/auth/api/v1/login",
+  "KnowledgeHubRegistryApiUrl": "registry.kh.svc"
+}

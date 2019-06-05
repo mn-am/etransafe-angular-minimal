@@ -1,0 +1,6 @@
+{
+  "Environment": "${ETS_ENVIRONMENT}",
+  "GatewayUrl": "${ETS_GATEWAY_URL}",
+  "AuthenticationApiUrl": "${ETS_AUTHENTICATION_API_URL}",
+  "KnowledgeHubRegistryApiUrl": "${ETS_KNOWLEDGE_HUB_REGISTRY_API_URL}"
+}
