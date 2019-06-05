@@ -20,8 +20,21 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+
+## Running the Docker container
+
+### Required Environment Variables
+ETS_ENVIRONMENT	DEVELOPMENT
+ETS_GATEWAY_URL	https://dev.etransafe.130.226.24.120.nip.io
+ETS_AUTHENTICATION_API_URL	/etssp.kh.svc/auth/api/v1/login
+ETS_KNOWLEDGE_HUB_REGISTRY_API_URL	registry.kh.svc
+BASE_HREF	/
+
+
+ttempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 # etransafe-angular-minimal
-
