@@ -1,9 +1,9 @@
 openapi: 3.0.2
 info:
-  title: eTRANSAFE login manager
+  title: eTRANSAFE minimal webapp example
   termsOfService: http://etransafe.eu
   description: >
-    eTRANSAFE login manager
+    A minimal Angular web-application that can be deployed in the Knowledge Hub
   contact:
     name: Support team
     url: https://mn-am.com
